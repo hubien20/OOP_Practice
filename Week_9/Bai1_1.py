@@ -15,8 +15,8 @@ class Point:
         return self.__x
     def getY(self):
         return self.__y
-    def distance(self, other):
-        return math.sqrt((self.__x - other.__x) ** 2 + (self.__y - other.__y) ** 2)
+    def distance(self):
+        return math.sqrt((self.__x) ** 2 + (self.__y) ** 2)
     
 x, y = map(int, input().split())
 p = Point(x, y)
