@@ -17,8 +17,3 @@ class Point:
         return self.__y
     def distance(self):
         return math.sqrt((self.__x) ** 2 + (self.__y) ** 2)
-    
-x, y = map(int, input().split())
-p = Point(x, y)
-p.display()
-print(p.distance())
