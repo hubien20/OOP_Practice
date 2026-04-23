@@ -28,3 +28,15 @@ class Point:
 
     def distanceTo(self, P):
         return math.sqrt((self.__x - P.__x) ** 2 + (self.__y - P.__y) ** 2)
+    
+if __name__ == "__main__":
+    p = Point()
+    p.read()
+    p.display()
+
+    p1 = Point(3, 4)
+    print(p.distance())
+    print(p.distance(p1))
+
+    p.move(1, 2)
+    p.display()
