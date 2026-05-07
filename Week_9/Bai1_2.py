@@ -28,7 +28,7 @@ class Point:
             dy = self.__y - P.getY()
             return math.sqrt(dx**2 + dy**2)
 
-def PointTest():
+class PointTest():
     print("Điểm A")
     a = Point(3, 4)
     print("Tọa độ điểm A: ", end="")
