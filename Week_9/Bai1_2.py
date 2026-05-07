@@ -4,9 +4,14 @@ class Point:
         self.__x = x
         self.__y = y
     def read(self):
-        self.__x = int(input("Nhap x: "))
-        self.__y = int(input("Nhap y: "))
-    def display(self):
+        try:
+            line = input("Nhập tọa độ (x y): ")
+            data = line.split()
+            self.__x = int(data[0])
+            self.__y = int(data[1])
+        except (IndexError, ValueError):
+            print("Lỗi: Vui lòng nhập đúng định dạng 2 số nguyên cách nhau bởi khoảng trắng!")  
+    def print(self):    
         print(f"({self.__x}, {self.__y})")
     def move(self, dx, dy):
         self.__x += dx
@@ -15,20 +20,31 @@ class Point:
         return self.__x
     def getY(self):
         return self.__y
-    def distance(self):
-        return math.sqrt((self.__x) ** 2 + (self.__y) ** 2)
-class PointTest:
-A = Point(3, 4)
-print("Điểm A:"); A.hien_thi()
-xb = int(input("Nhập x của B: "))
-yb = int(input("Nhập y của B: "))
-B = Point(xb, yb)
-print("Điểm B:"); B.hien_thi()
-C = B.doi_xung_qua_O()
-print("Điểm C (đối xứng B qua O):"); C.hien_thi()
-print(f"Khoảng cách B đến O: {B.khoang_cach_den_O():.2f}")
-print(f"Khoảng cách A đến B: {A.khoang_cach_den(B):.2f}")
-x, y = map(int, input().split())
-p = Point(x, y)
-p.display()
-print(p.distance())
+    def distance(self, P=None):
+        if P is None:
+            return math.sqrt(self.__x**2 + self.__y**2)
+        else:
+            dx = self.__x - P.getX()
+            dy = self.__y - P.getY()
+            return math.sqrt(dx**2 + dy**2)
+
+def PointTest():
+    print("Điểm A")
+    a = Point(3, 4)
+    print("Tọa độ điểm A: ", end="")
+    a.print_point()
+    print("\nĐiểm B")
+    b = Point()
+    b.read()
+    print("Tọa độ điểm B: ", end="")
+    b.print_point()
+    print("\nĐiểm C (đối xứng B qua O)")
+    c = Point(-b.getX(), -b.getY())
+    print("Tọa độ điểm C: ", end="")
+    c.print_point()
+    dist_b_o = b.distance()
+    print(f"\nKhoảng cách từ B đến gốc O: {dist_b_o:.2f}")
+    dist_a_b = a.distance(b)
+    print(f"Khoảng cách từ A đến B: {dist_a_b:.2f}")
+if __name__ == "__main__":
+    PointTest()
