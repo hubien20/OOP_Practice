@@ -47,6 +47,7 @@ class LineSegment:
             self.__d2 = Point(args[2], args[3])
 
     def read(self):
+        try:
             val = list(map(int, input().split()))
             self.__d1 = Point(val[0], val[1])
             self.__d2 = Point(val[2], val[3])
