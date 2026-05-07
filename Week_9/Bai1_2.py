@@ -29,22 +29,15 @@ class Point:
             return math.sqrt(dx**2 + dy**2)
 
 class PointTest:
-    def main():
-        print("Tạo điểm A(3, 4):")
-        a = Point(3, 4)
-        print("Tọa độ điểm A: ", end="")
-        a.print_info()
-        print("\nNhập tọa độ cho điểm B:")
-        b = Point()
-        b.read()
-        print("Tọa độ điểm B: ", end="")
-        b.print_info()
-        c = Point(-b.getX(), -b.getY())
-        print("\nTọa độ điểm C (đối xứng B qua O): ", end="")
-        c.print_info()
-        dist_bo = b.distance()
-        print(f"\nKhoảng cách từ B đến gốc O: {dist_bo}")
-        dist_ab = a.distance(b)
-        print(f"Khoảng cách từ A đến B: {dist_ab}")
-if __name__ == "__main__":
-    PointTest.main()
+    def testCase(self):
+        A = Point()
+        A.print()
+        B = Point()
+        B.read()
+        B.print()
+        B.move(1, 1)
+        B.print()
+        print(B.distance())
+if _name_ == "_main_":
+    t = PointTest()
+    t.testCase()
