@@ -63,11 +63,9 @@ class ColorPoint(Point):
             pass
 
     def print(self):
-        """Hiển thị thông tin dạng (x, y): color - Có xuống dòng"""
         print(f"({self.getX()}, {self.getY()}): {self.__color}")
 
     def __str__(self):
-        """Định nghĩa chuỗi đại diện phục vụ cho lệnh print(c2) của Grader"""
         return f"({self.getX()}, {self.getY()}): {self.__color}"
 
     def getColor(self) -> str:
@@ -76,27 +74,19 @@ class ColorPoint(Point):
     def setColor(self, color: str):
         self.__color = color
 
-
-# =====================================================================
-# LỚP COLORPOINTTEST (THEO ĐÚNG KHUNG MẪU HÌNH ẢNH)
-# =====================================================================
 class ColorPointTest:
     def testCase(self):
-        # 1. c1 = ColorPoint() (color mặc định = 'xanh'), in c1
         c1 = ColorPoint()
         print(c1)
         
-        # 2. c2 = ColorPoint() rồi c2.read() (đọc 1 dòng x y color), in c2 ban đầu
         c2 = ColorPoint()
         c2.read()
         print(c2)
-        
-        # 3. c3 = ColorPoint(c2) — sao chép
+
         c3 = ColorPoint(c2)
         
-        # 4. c2.move(5, 5) — dời c2
+
         c2.move(5, 5)
         
-        # 5. In c2 (đã dời) rồi c3 (phải giữ nguyên) theo đúng chuẩn Python: print(obj)
         print(c2)
         print(c3)
